@@ -1,4 +1,15 @@
-This is a perl based script that pulls data from a Xantrex Inverter,
-stores it in file SG View formatted log file for processing by PVOutput
-Integration Service
+Xantrex Inverter Logger
 
+Pulled together from various sites this script generates a log file that is similar to the Windows based SG View software.
+Its existence then allows a suitably configured PVOuput Integration Service to parse the contents and upload to that site.
+
+This script currently runs every minute on a Fedora box.
+The crontab -e with both services running looks like
+@reboot cd "/usr/local/org.pvoutput.integration.v1.4.0.2/bin"; ./pvoutput.sh &
+* * * * * cd "/usr/local"; ./XantrexLogger.pl &
+
+Reference Sites used to cobble this together were:
+http://blog.our-files.com/2012/10/solar-monitoring-stuff/
+http://home.exetel.com.au/frolektrics/projects/integrating-a-samilpower-inverter-with-pvoutput
+Grubs aurora script on WP: http://forums.whirlpool.net.au/archive/1960759#r35311466
+http://solar.js.cx/
