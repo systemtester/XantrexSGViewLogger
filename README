@@ -1,1 +1,4 @@
-This is just a small perl based script that pulls data from from a Xantrex Inverter and stores it in file for processing by PVOutput.org
+This is a perl based script that pulls data from a Xantrex Inverter,
+stores it in file SG View formatted log file for processing by PVOutput
+Integration Service
+
