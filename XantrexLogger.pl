@@ -24,6 +24,7 @@ my $logfile = "$logdir/solarDataLog ".sprintf('%02d',$mon)."-".sprintf('%02d',$m
 my $logdata;
 my $csv = Text::CSV->new ({ binary => 1, sep_char => "\t"}) or die "Cannot use CSV: ".Text::CSV->error_diag (); #Default sep_char is COMMA
 my ($VDC,$DCAmps,$MPPT,$DCPwr,$ACPwr,$Eff,$VAC,$ACKWh, $ACWh,$HSTemp,$Freq, $STATUS);
+my ($num, $mantissa);
 
 # Wait until unlocked
 while (-e $serial_lock)
@@ -62,12 +63,11 @@ if ($DCAmps && $DCAmps > 0) #Don't Log if Inverter is not getting the juice
 
 	# The SG-View software logs a calculated Efficiency value
 	# The Inverter does not store or calculate this so we're calculating it now
-	my ($num, $mantissa);
 	if ($ACPwr && $ACPwr > 0)
 	{
 		$Eff = 100 * int($ACPwr) / int($DCPwr);
 		($num, $mantissa) = split ('\.', $Eff);
-		$mantissa = substr($mantissa, 0, 2);
+		$mantissa = substr $mantissa, 0, 2;
 		$Eff = $num.".".$mantissa;
 	}
 	else
@@ -90,7 +90,7 @@ if ($DCAmps && $DCAmps > 0) #Don't Log if Inverter is not getting the juice
 	$serial_port->write("FREQ?\r");
 	(my $FreqCharCount, $Freq) = $serial_port->read(255);
 	($num, $mantissa) = split ('\.', $Freq);
-	$mantissa = substr($mantissa, 0, 1);
+	$mantissa = substr $mantissa, 0, 1;
 	if ($mantissa == 0) { #Following logic used in SG View here.  .0 is dropped and the whole number remains.
 		$Freq = $num;
 	}

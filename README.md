@@ -1,10 +1,10 @@
 Xantrex Inverter Logger
 =======================
 
-This script generates a log file that is similar to the Windows based SG View software.
-Its existence then allows a suitably configured PVOuput Integration Service to parse the contents and upload to that site.
+This script generates a log file that is similar to the Windows based [SG View](http://pvoutput.org/help.html#integration) software.
+Its existence then allows a suitably configured [PVOuput Integration Service](http://code.google.com/p/pvoutput-integration-service/) to parse the contents and upload to that site.
 
-Dependancies
+Dependencies
 ------------
 
 The following packages are required for this script to operate correctly.
@@ -16,14 +16,20 @@ The following packages are required for this script to operate correctly.
 ###PVOutput
 The following configurations dependancies are noted to reduce confusion (change to suit your own locations)
 pvoutput.ini
-	dir=/var/log/pvoutput
-corresponds to the following script configuration
-	$logdir
-pvoutput.ini
-	file=solarDataLog {MM-dd-yyyy}
-corresponds to the following script configuration
-	$logfile
 
+	dir=/var/log/pvoutput
+
+corresponds to the following script configuration
+
+	$logdir
+
+pvoutput.ini
+
+	file=solarDataLog {MM-dd-yyyy}
+
+corresponds to the following script configuration
+
+	$logfile
 
 Tested On
 ---------
@@ -44,17 +50,25 @@ The PVOutput Integration Service is executed at reboot
 To Do
 -----
 
-I continue to get the following when this script hits Line 70
+I continue to get the following when this script hits Line 70.  Feel free to adjust that.
 
 	Use of uninitialized value $mantissa in substr at ./XantrexLogger.pl line 70.
+	
+While not required for PVOutput the efficiency 
 
 Attribution
 -----------
 
 Many thanks to the following sites for doing a lot of the hard work for me.
+
+http://www.planetchan.com/laurie/energy/solar/Xantrex%20serial%20commands.pdf
+
 http://blog.our-files.com/2012/10/solar-monitoring-stuff/
+
 http://home.exetel.com.au/frolektrics/projects/integrating-a-samilpower-inverter-with-pvoutput
+
 Grubs aurora script on WP: http://forums.whirlpool.net.au/archive/1960759#r35311466
+
 http://solar.js.cx/
 
 Contributing
@@ -62,7 +76,7 @@ Contributing
 
 1. Fork it.
 2. Create a branch (`git checkout -b my_XantrexLogger`)
-3. Commit your changes (`git commit -am "Code Optimised"`)
+3. Commit your changes (`git commit -am "Code Optimised :)"`)
 4. Push to the branch (`git push origin my_XantrexLogger`)
 5. Open a [Pull Request][1]
 6. Enjoy a refreshing Coke Zero and wait
