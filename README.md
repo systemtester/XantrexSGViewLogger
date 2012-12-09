@@ -81,5 +81,5 @@ Contributing
 5. Open a [Pull Request][1]
 6. Enjoy a refreshing Coke Zero and wait
 
-[1]: http://github.com/github/markup/pulls
+[1]: http://github.com/systemtester/XantrexSGViewLogger/pulls
 
