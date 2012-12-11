@@ -66,9 +66,15 @@ if ($DCAmps && $DCAmps > 0) #Don't Log if Inverter is not getting the juice
 	if ($ACPwr && $ACPwr > 0)
 	{
 		$Eff = 100 * int($ACPwr) / int($DCPwr);
-		($num, $mantissa) = split ('\.', $Eff);
-		$mantissa = substr $mantissa, 0, 2;
-		$Eff = $num.".".$mantissa;
+		my @values = split ('\.', $Eff);
+		if (scalar(@values) == 2)
+		{
+			$Eff = $values[0]. "." . substr $values[1], 0, 2;
+		}
+		else
+		{
+			$Eff = $values[0]. ".00";
+		}
 	}
 	else
 	{
