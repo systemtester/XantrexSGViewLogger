@@ -50,11 +50,7 @@ The PVOutput Integration Service is executed at reboot
 To Do
 -----
 
-I continue to get the following when this script hits Line 70.  Feel free to adjust that.
-
-	Use of uninitialized value $mantissa in substr at ./XantrexLogger.pl line 70.
-	
-While not required for PVOutput the efficiency 
+n/a
 
 Attribution
 -----------
