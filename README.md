@@ -15,11 +15,12 @@ The following packages are required for this script to operate correctly.
 
 ###PVOutput
 The following configurations dependancies are noted to reduce confusion (change to suit your own locations)
+
 pvoutput.ini
 
 	dir=/var/log/pvoutput
 
-corresponds to the following script configuration
+corresponds to the following script parameter
 
 	$logdir
 
@@ -27,7 +28,7 @@ pvoutput.ini
 
 	file=solarDataLog {MM-dd-yyyy}
 
-corresponds to the following script configuration
+corresponds to the following script parameter
 
 	$logfile
 
