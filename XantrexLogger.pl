@@ -73,8 +73,9 @@ if ($DCAmps && $DCAmps > 0) #Don't Log if Inverter is not getting the juice
 		}
 		else
 		{
-			$Eff = $values[0]. ".00";
+			$Eff = $values[0]. ".00"; #Not needed but logfile looks better with it.
 		}
+		$Eff .= "\r";  #Without adding this the regex on L121 & L122 complains
 	}
 	else
 	{
